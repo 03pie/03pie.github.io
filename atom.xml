@@ -35,7 +35,7 @@
     <link href="http://yoursite.com/2019/02/27/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84I-O/"/>
     <id>http://yoursite.com/2019/02/27/C语言中的I-O/</id>
     <published>2019-02-27T04:12:45.000Z</published>
-    <updated>2019-02-27T04:12:45.611Z</updated>
+    <updated>2019-03-01T09:35:24.655Z</updated>
     
     <summary type="html">
     
@@ -91,17 +91,17 @@
     <link href="http://yoursite.com/2019/02/27/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E8%BF%90%E7%AE%97/"/>
     <id>http://yoursite.com/2019/02/27/C语言中的数据运算/</id>
     <published>2019-02-27T04:07:22.000Z</published>
-    <updated>2019-03-01T09:06:10.604Z</updated>
+    <updated>2019-03-01T09:40:28.076Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><h3 id="1-数据类型及长度"><a href="#1-数据类型及长度" class="headerlink" title="1.数据类型及长度"></a>1.数据类型及长度</h3></blockquote><h5 id="C语言只提供了下列几种基本类型"><a href="#C语言只提供了下列几种基本类型" class="headerlink" title="C语言只提供了下列几种基本类型:"></a>C语言只提供了下列几种基本类型:</h5><ul><li><em>char</em> 字符型，占用一个字节，可以存放本地字符集中的一个字符，类型限定符signed与unsigned可用于限定char类型或任何整型，unsigned类型的数总是非负，如unsigned char类型的取值范围位0~255，而signed char类型变量的取值范围位-128~127(补码)。</li><li><em>int</em> 整型，通常反映了所用机器中整数的自然长度，short类型通常为16位，long类型通常位32位，int类型可以是16位或者32位，各编译器可以根据硬件特性自主选择合适的类型长度，但要遵循下列限制：short与int类型至少16位，而long类型至少为32位，并且short类型不得长于int类型，而int类型不得长于long类型。</li><li><p><em>float</em> 单精度浮点型</p></li><li><p><em>double</em> 双精度浮点型</p></li></ul><blockquote><h3 id="2-类型转换"><a href="#2-类型转换" class="headerlink" title="2.类型转换"></a>2.类型转换</h3></blockquote><p>C语言中，很多情况下会进行隐式的算术类型转换，一般来说，如果二元运算符的两个操作数具有不同的类型，那么在运算之前要先将“较低”类型转化为“较高”类型，运算结构为较高类型。使用float类型是为了在使用较大的数组时节省存储空间，又是也为了节省机器执行时间（双精度算术特别费时）。</p>]]></content>
+    <content type="html"><![CDATA[<blockquote><h3 id="数据类型及长度"><a href="#数据类型及长度" class="headerlink" title="数据类型及长度"></a>数据类型及长度</h3></blockquote><h4 id="C语言只提供了下列几种基本类型"><a href="#C语言只提供了下列几种基本类型" class="headerlink" title="C语言只提供了下列几种基本类型:"></a>C语言只提供了下列几种基本类型:</h4><ul><li><em>char</em> 字符型，占用一个字节，可以存放本地字符集中的一个字符，类型限定符signed与unsigned可用于限定char类型或任何整型，unsigned类型的数总是非负，如unsigned char类型的取值范围位0~255，而signed char类型变量的取值范围位-128~127(补码)。</li><li><em>int</em> 整型，通常反映了所用机器中整数的自然长度，short类型通常为16位，long类型通常位32位，int类型可以是16位或者32位，各编译器可以根据硬件特性自主选择合适的类型长度，但要遵循下列限制：short与int类型至少16位，而long类型至少为32位，并且short类型不得长于int类型，而int类型不得长于long类型。</li><li><p><em>float</em> 单精度浮点型</p></li><li><p><em>double</em> 双精度浮点型</p></li></ul><blockquote><h3 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h3></blockquote><p>C语言中，很多情况下会进行隐式的算术类型转换，一般来说，如果二元运算符的两个操作数具有不同的类型，那么在运算之前要先将“较低”类型转化为“较高”类型，运算结构为较高类型。使用float类型是为了在使用较大的数组时节省存储空间，又是也为了节省机器执行时间（双精度算术特别费时）。</p>]]></content>
     
     <summary type="html">
     
       
       
         &lt;blockquote&gt;
-&lt;h3 id=&quot;1-数据类型及长度&quot;&gt;&lt;a href=&quot;#1-数据类型及长度&quot; class=&quot;headerlink&quot; title=&quot;1.数据类型及长度&quot;&gt;&lt;/a&gt;1.数据类型及长度&lt;/h3&gt;&lt;/blockquote&gt;
-&lt;h5 id=&quot;C语言只提供了下列几
+&lt;h3 id=&quot;数据类型及长度&quot;&gt;&lt;a href=&quot;#数据类型及长度&quot; class=&quot;headerlink&quot; title=&quot;数据类型及长度&quot;&gt;&lt;/a&gt;数据类型及长度&lt;/h3&gt;&lt;/blockquote&gt;
+&lt;h4 id=&quot;C语言只提供了下列几种基本类型&quot;&gt;&lt;
       
     
     </summary>
