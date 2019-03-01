@@ -264,9 +264,15 @@ height:50vh;
             <div class="post-intros">
                 <!-- 文章页标签  -->
                 
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="C">C</a>
+    
+</div>
+                
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">0</span>
+                        <span>字数统计: <span class="post-count word-count">355</span>
                     </span></div>
                 
                 <div class="post-intro-meta">
@@ -393,7 +399,20 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        
+        <blockquote>
+<h3 id="1-数据类型及长度"><a href="#1-数据类型及长度" class="headerlink" title="1.数据类型及长度"></a>1.数据类型及长度</h3></blockquote>
+<h5 id="C语言只提供了下列几种基本类型"><a href="#C语言只提供了下列几种基本类型" class="headerlink" title="C语言只提供了下列几种基本类型:"></a>C语言只提供了下列几种基本类型:</h5><ul>
+<li><em>char</em> 字符型，占用一个字节，可以存放本地字符集中的一个字符，类型限定符signed与unsigned可用于限定char类型或任何整型，unsigned类型的数总是非负，如unsigned char类型的取值范围位0~255，而signed char类型变量的取值范围位-128~127(补码)。</li>
+<li><em>int</em> 整型，通常反映了所用机器中整数的自然长度，short类型通常为16位，long类型通常位32位，int类型可以是16位或者32位，各编译器可以根据硬件特性自主选择合适的类型长度，但要遵循下列限制：short与int类型至少16位，而long类型至少为32位，并且short类型不得长于int类型，而int类型不得长于long类型。</li>
+<li><p><em>float</em> 单精度浮点型</p>
+</li>
+<li><p><em>double</em> 双精度浮点型</p>
+</li>
+</ul>
+<blockquote>
+<h3 id="2-类型转换"><a href="#2-类型转换" class="headerlink" title="2.类型转换"></a>2.类型转换</h3></blockquote>
+<p>C语言中，很多情况下会进行隐式的算术类型转换，一般来说，如果二元运算符的两个操作数具有不同的类型，那么在运算之前要先将“较低”类型转化为“较高”类型，运算结构为较高类型。使用float类型是为了在使用较大的数组时节省存储空间，又是也为了节省机器执行时间（双精度算术特别费时）。</p>
+
     </article>
     <!-- license  -->
     
@@ -528,7 +547,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-数据类型及长度"><span class="toc-number">1.</span> <span class="toc-text">1.数据类型及长度</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#C语言只提供了下列几种基本类型"><span class="toc-number">1.0.1.</span> <span class="toc-text">C语言只提供了下列几种基本类型:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-类型转换"><span class="toc-number">2.</span> <span class="toc-text">2.类型转换</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -676,6 +695,8 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="UVA"><span class="iconfont-archer">&#xe606;</span>UVA</span>
     
+        <span class="sidebar-tag-name" data-tags="C"><span class="iconfont-archer">&#xe606;</span>C</span>
+    
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
@@ -710,6 +731,8 @@ jsonContent:
     <div class="sidebar-categories-name">
     
         <span class="sidebar-category-name" data-categories="OJ"><span class="iconfont-archer">&#xe60a;</span>OJ</span>
+    
+        <span class="sidebar-category-name" data-categories="编程语言"><span class="iconfont-archer">&#xe60a;</span>编程语言</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
