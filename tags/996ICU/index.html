@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>UVA - 100 · 03pie</title>
+    <title>03pie</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,23 +203,12 @@
 </head>
 
     
-        <body class="post-body">
-    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
-    
-    <div class="banner">
-            <div class="blog-title">
-                <a href="/">03pie&#39;s home</a>
-            </div>
-            <div class="post-title">
-                <a href="#" class="post-name">UVA - 100</a>
-            </div>
-    </div>
     
     <a class="home-link" href="/">03pie's home</a>
 </header>
@@ -231,72 +220,24 @@
 
 
 
-
-height:50vh;
 ">
     
     <!-- 主页  -->
-    
-    
-    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/timg.gif)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
-            
-            UVA - 100
-            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
-            
-            <!-- 404 -->
-            
         </p>
         <!-- 文章页meta -->
-        
-            <div class="post-intros">
-                <!-- 文章页标签  -->
-                
-                    <div class="post-intro-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="UVA">UVA</a>
-    
-</div>
-                
-                
-                    <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">121</span>
-                    </span></div>
-                
-                <div class="post-intro-meta">
-                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/01/06</span>
-                    
-                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
-                        <span class="iconfont-archer">&#xe602;</span>
-                        <span id="busuanzi_value_page_pv"></span>
-                    </span>
-                    
-                    <span class="shareWrapper">
-                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
-                        <span class="shareText">Share</span>
-                        <ul class="shareList">
-                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
-                                <div class="share-qrcode"></div>
-                            </li>
-                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
-                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
-                        </ul>
-                    </span>
-                </div>
-            </div>
         
     </div>
 </div>
@@ -397,45 +338,43 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main post-page">
-    <article class="article-entry">
-        <p>问题描述：极简主义代码。</p>
-<blockquote>
-<p><a href="https://vjudge.net/problem/UVA-100" target="_blank" rel="noopener">The 3n + 1 problem</a><br>03pie’s solution for [UVA-100]：</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">clen</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> cl=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(n!=<span class="number">1</span>)&#123;</span><br><span class="line">		n=(n&amp;<span class="number">1</span>?<span class="number">3</span>*n+<span class="number">1</span>:n&gt;&gt;<span class="number">1</span>);</span><br><span class="line">		cl++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> cl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a,b;</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;a&gt;&gt;b)&#123;</span><br><span class="line">		<span class="keyword">int</span> a1=a,b1=b,ans=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">if</span>(b&lt;a)	swap(a,b);</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=a;i&lt;=b;i++)</span><br><span class="line">			ans=(ans&gt;clen(i)?ans:clen(i));</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;a1&lt;&lt;<span class="string">" "</span>&lt;&lt;b1&lt;&lt;<span class="string">" "</span>&lt;&lt;ans&lt;&lt;<span class="built_in">endl</span>;	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <main class="main index-page">
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/04/16/重新认识程序员/">
+            
+                <span>重新认识程序员</span>
+        </a>
+        <div class="abstract-content">
+            
+重新认识程序员
 
+首先程序员这个群体大多是受过良好教育，有的甚至是高学历，而且学的是相对复杂和难度不低的计算机专业，以前有人调侃程序员“钱多话少死的快”，仔细想想这就是真真切切的现实！！毕业后来到魔都，帝都一线城市，生活成本不是一般的高，所谓的“钱多”在某个转换算法下其实并不多。
+计算机行业...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/16</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="996ICU">996ICU</a>
+    
+</div>
+            
+        </div>
     </article>
-    <!-- license  -->
     
     <!-- paginator  -->
-    <ul class="post-paginator">
-        <li class="next">
-            
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2019/02/27/C语言中的数据运算/" title="C语言中的数据运算">
-                    <div class="nextTitle">C语言中的数据运算</div>
-                </a>
-            
-        </li>
-        <li class="previous">
-            
-        </li>
-    </ul>
-    <!-- 评论插件 -->
-    <!-- 来必力City版安装代码 -->
-
-<!-- City版安装代码已完成 -->
     
-    
-    <!-- partial('_partial/comment/changyan') -->
-    <!--PC版-->
-
-
-    
-    
-
-    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -519,24 +458,6 @@ height:50vh;
     </div>
     <!-- toc -->
     
-    <div class="toc-wrapper" style=
-    
-
-
-
-
-
-
-
-top:50vh;
-
-    >
-        <div class="toc-catalog">
-            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
-        </div>
-        
-    </div>
-    
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
     <ul class="sidebar-tabs sidebar-tabs-active-0">
@@ -558,75 +479,9 @@ top:50vh;
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 7
+        Total : 1
         </div>
         <!-- search  -->
         
@@ -642,37 +497,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/27</span><a class="archive-post-title" href="/2019/02/27/结构体/">结构体</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">02/27</span><a class="archive-post-title" href="/2019/02/27/指针与数组/">指针与数组</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">02/27</span><a class="archive-post-title" href="/2019/02/27/C语言程序控制/">C语言程序控制</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">02/27</span><a class="archive-post-title" href="/2019/02/27/C语言中的I-O/">C语言中的I/O</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">02/27</span><a class="archive-post-title" href="/2019/02/27/C语言中的数据运算/">C语言中的数据运算</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">02/27</span><a class="archive-post-title" href="/2019/02/27/C与UNIX接口/">C与UNIX接口</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">01/06</span><a class="archive-post-title" href="/2019/01/06/UVA-100/">UVA - 100</a>
+            <span class="archive-post-date">04/16</span><a class="archive-post-title" href="/2019/04/16/重新认识程序员/">重新认识程序员</a>
         </li>
     
     </ul></div>
@@ -680,9 +505,7 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="C"><span class="iconfont-archer">&#xe606;</span>C</span>
-    
-        <span class="sidebar-tag-name" data-tags="UVA"><span class="iconfont-archer">&#xe606;</span>UVA</span>
+        <span class="sidebar-tag-name" data-tags="996ICU"><span class="iconfont-archer">&#xe606;</span>996ICU</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -717,9 +540,7 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="编程语言"><span class="iconfont-archer">&#xe60a;</span>编程语言</span>
-    
-        <span class="sidebar-category-name" data-categories="OJ"><span class="iconfont-archer">&#xe60a;</span>OJ</span>
+        <span class="sidebar-category-name" data-categories="杂谈"><span class="iconfont-archer">&#xe60a;</span>杂谈</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
@@ -753,8 +574,6 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
-    
-        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
