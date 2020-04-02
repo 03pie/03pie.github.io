@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.03pie.work/"/>
-  <updated>2020-04-01T09:18:32.397Z</updated>
+  <updated>2020-04-02T03:19:10.474Z</updated>
   <id>https://www.03pie.work/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《机器学习中的数学》——逻辑（斯特）回归</title>
+    <link href="https://www.03pie.work/2020/04/02/%E3%80%8A%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6%E3%80%8B%E2%80%94%E2%80%94%E9%80%BB%E8%BE%91%EF%BC%88%E6%96%AF%E7%89%B9%EF%BC%89%E5%9B%9E%E5%BD%92/"/>
+    <id>https://www.03pie.work/2020/04/02/《机器学习中的数学》——逻辑（斯特）回归/</id>
+    <published>2020-04-02T03:17:53.000Z</published>
+    <updated>2020-04-02T03:19:10.474Z</updated>
+    
+    <content type="html"><![CDATA[<p>@<a href="目录">TOC</a></p><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>逻辑斯特回归同样属于<strong>监督学习</strong>，说到回归一般指的是对连续值的预测，这里的逻辑斯特回归用来解决分类问题，此篇博客主要以二分类为例子分析。<br>例子如下：<br>横坐标表示肿瘤大小，纵坐标表示是否为恶性肿瘤。<br><img src="https://img-blog.csdnimg.cn/20200402085923575.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM0Njc3OTQ1,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>可以看到线性回归得到的一条直线中加上一个阈值（大于某一值取正样本，反之取负样本）可以对这8个样本点有一个比较明确的分类，如下如图：<img src="https://img-blog.csdnimg.cn/20200402090229798.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM0Njc3OTQ1,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>但是这个方法对噪声点很敏感，如果我们增加三个样本点，得到一个新的拟合直线：<br><img src="https://img-blog.csdnimg.cn/20200402090751927.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM0Njc3OTQ1,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>再用刚才的阈值来划分时发现，新添加的样本被判断错了，<strong>鲁棒性</strong>不够，由此可见在线性回归中很难找一个绝对的值来严格划分样本结果，此时使用逻辑斯特回归来解决。</p><h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p>逻辑斯特回归利用一个相对的值（线性回归不能绝对的确定结果）——概率，来对每一个样本点预测，它的输出被映射到$[0,1]$上，是一个连续值。此映射归功于sigmoid函数：<br>$$<br>y=\frac{1}{1+e^{-x}}<br>$$<br><img src="https://img-blog.csdnimg.cn/20200402092141621.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM0Njc3OTQ1,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>逻辑斯特的做法是：将线性回归的结果映射到sigmoid函数可以得到每一个样本点的概率值。但是需要一组好的参数来将样本分开，这里的参数就是判定边界的参数。<br>接下来讨论一个概念——<strong>判定边界</strong>,就是在样本集中分类的边界。<br><img src="https://img-blog.csdnimg.cn/20200402094422517.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM0Njc3OTQ1,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">如图线性回归中，判定边界为一条直线，我们假设为$y=-3+x_1+x_2$，当$y=0$时，直线将样本划分为两类：<br><img src="https://img-blog.csdnimg.cn/20200402095045174.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM0Njc3OTQ1,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>其中：$$h_\theta(x)=g(\theta_0+\theta_1x_1+\theta_2x_2)$$<br>表示将线性回归的结果映射到sigmoid函数，$h_\theta(x)$输出一个$[0,1]$的概率值，$y=0$为此时的判定边界，在直线上方是正样本，下方为负样本，假设的参数$\theta$是要学习的。<br><img src="https://img-blog.csdnimg.cn/20200402095808614.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM0Njc3OTQ1,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>同理当我们造出高次项的特征时，非线性的判定边界也可以是曲线。当$y=0$时为圆的边，$y&gt;0$为圆的外面，$y&lt;0$为圆的里面，这样可以很好的分类样本集。<br>逻辑斯特回归的<strong>损失函数</strong>：<br>线性回归中利用方差的方法不适合，因为逻辑回归的是分类问题，所求得结果是概率，在$[0，1]$之间    导致$h_\theta(x)$是一个不光滑的曲线（非凸函数，有局部最小点，梯度下降法不能用），此时使用<strong>互熵损失</strong>：<br>$$<br>Cost(h_\theta(x),y)=\left{<br>\begin{array}{rcl}<br>   -log(h_\theta(x))  &amp;if: &amp;y=1\<br> -log(1-h_\theta(x))  &amp;if: &amp;y=0\<br>\end{array} \right.<br>$$<br>当$y=1$结果是正样本时,$x$越接近1,$Cost$函数越小，损失越小：<img src="https://img-blog.csdnimg.cn/20200402103213936.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM0Njc3OTQ1,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>当$y=0$结果是正样本时,$x$越接近0,$Cost$函数越小，损失越小：<br><img src="https://img-blog.csdnimg.cn/20200402103249561.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM0Njc3OTQ1,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>可得出逻辑斯特回归的<strong>损失函数</strong>：<br>$$<br>J(\theta)=\frac{1}{m}\sum_{i=1}^mCost(h_\theta(x^{(i)}),y^{(i)})\<br>=-\frac{1}{m}\sum_{i=1}^m[(y^{i}logh_\theta(x^{(i)})+(1-y^{i})log   (1-h_\theta(x^{(i)}))]<br>$$<br>别忘了<strong>L2正则化</strong>：<br>$$<br>J(\theta)<br>=-\frac{1}{m}\sum_{i=1}^m[(y^{i}logh_\theta(x^{(i)})+(1-y^{i})log   (1-h_\theta(x^{(i)}))]+\frac{\lambda}{2m}\sum_{i=1}^m\theta_i^2<br>$$<br>接下来是梯度下降（$J_\theta(x)$是一个凸函数，只存在一个最优解）法寻找最优解：<br>$$<br>\theta_i=\theta_i-\alpha\frac{\partial}{\partial \theta_i}J(\theta)<br>$$<br><strong>多分类问题</strong>是可以构建多个分类器，例如：对A和{B，C}分类构建分类器，然后再对B，C构建分类器。</p><h2 id="总结与链接"><a href="#总结与链接" class="headerlink" title="总结与链接"></a>总结与链接</h2><p>LR(逻辑斯特回归)使用注意：<br>1.样本量太大时可以：</p><ul><li>离散化后用one-hot编码处理；</li><li>连续值注意要用scaling（标准化）<br>2.样本平衡</li><li>LR对样本敏感，注意噪声样本</li><li>做上采样（样本多，可以对不均衡样本采样，正多采正）和下采样（图像中对样本丰富，镜像，反转…）</li><li>改lose function（对不均衡样本权重调节）</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;@&lt;a href=&quot;目录&quot;&gt;TOC&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h2&gt;&lt;p&gt;逻辑斯特回归同样属于&lt;strong&gt;监督学习&lt;/strong&gt;，说到回归一般指的是
+      
+    
+    </summary>
+    
+      <category term="算法与数学" scheme="https://www.03pie.work/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E5%AD%A6/"/>
+    
+    
+      <category term="机器学习" scheme="https://www.03pie.work/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>《机器学习中的数学》——线性回归与梯度下降</title>
