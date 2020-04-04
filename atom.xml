@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.03pie.work/"/>
-  <updated>2020-04-02T09:05:38.277Z</updated>
+  <updated>2020-04-04T07:57:33.149Z</updated>
   <id>https://www.03pie.work/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《机器学习中的数学》——方差与偏差</title>
+    <link href="https://www.03pie.work/2020/04/04/%E3%80%8A%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6%E3%80%8B%E2%80%94%E2%80%94%E6%96%B9%E5%B7%AE%E4%B8%8E%E5%81%8F%E5%B7%AE/"/>
+    <id>https://www.03pie.work/2020/04/04/《机器学习中的数学》——方差与偏差/</id>
+    <published>2020-04-04T07:55:29.000Z</published>
+    <updated>2020-04-04T07:57:33.149Z</updated>
+    
+    <content type="html"><![CDATA[<p>@<a href="目录">TOC</a></p><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>1.<strong>偏差</strong>：描述的是<strong>预测值的期望</strong>与<strong>真实值</strong>之间的差距，偏差越大，越偏离真实数据。<br>2.<strong>方差</strong>：<strong>预测值的方差</strong>，描述的是<strong>预测值</strong>的变化范围，离散程度，也就是距离<strong>预测值期望的距离</strong>方差越大，数据的分布越是分散。<br>如图：<br><img src="https://img-blog.csdnimg.cn/20200404153009212.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM0Njc3OTQ1,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p><strong>偏差</strong>,<strong>方差</strong>与<strong>模型泛化能力</strong>：<br><strong>偏差度量</strong>的是学习算法<strong>预测误差</strong>和<strong>真实误差</strong>的偏离程度，即刻画学习算法本身的学习能力；<strong>方差度量</strong>了同样大小的数据变动所导致的学习性能的变化；<strong>噪声</strong>则表达了当前任务上任何学习算法所能到达的期望预测误差的下界，即刻画了学习问题本身的难度，因此<strong>泛化误差是由学习算法的能力、数据的充分性以及问题本身难度决定。</strong><br><img src="https://img-blog.csdnimg.cn/20200404153802844.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM0Njc3OTQ1,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>例如现在我们选择机器学习模型对图中数据做拟合，上左图使用直线对数据进行拟合，直线不能很好的分割数据，预测值将有大量分错，如红色的叉分到了蓝色的圈一类，此时模型偏差过大，模型欠拟合；再看上右图，模型过度拟合数据，将数据中的噪音点也都学到，此时数据的轻微波动将会导致预测结果的波动，方差过大，模型过拟合；自然上中图是我们认为比较好的拟合。<br>所有存在模型的泛化能力(泛化误差)是由偏差、方差与数据噪声之和：<br>$$<br>Err(x)= bias^2(x)+var(x)+ ε^2<br>$$<br>四种情况举例：<br>(1)训练集错误率：1%、测试集错误率：11% 低偏差高方差</p><p>(2)训练集错误率：15%、测试集错误率：16% 高偏差低方差</p><p>(3)训练集错误率：15%、测试集错误率：30% 高偏差高方差</p><p>(4)训练集错误率：0.5%、测试集错误率：1% 低偏差低方差<br><strong>模型优化</strong>：<br>1、高偏差(模型欠拟合)时模型优化方法<br>(1)添加特征数<br>当特征不足或者选取的特征与标签之间相关性不强时，模型容易出现欠拟合，通过挖掘上下文特征、ID类特征、组合特征等新特征，往往可以达到防止欠拟合的效果。</p><p>(2)增加模型复杂度<br>模型过于简单则学习能力会差，通过增加模型的复杂度可以使得模型拥有更强的你和能力，例如在线性模型中添加高此项，在神经网络模型中增加隐层层数或增加隐层神经元个数。</p><p>(3)延长训练时间<br>在决策树、神经网络中，通过增加训练时间可以增强模型的泛化能力，使得模型有足够的时间学习到数据的特征，可达到更好的效果。</p><p>(4)减小正则化系数<br>正则化是用来方式过拟合的，但当模型出现欠拟合时则需要有针对的较小正则化系数。</p><p>2、高方差(模型过拟合)时模型优化方法<br>(1)增加数据集<br>增加数据集是解决过拟合问题最有效的手段，因为更多的数据能够让模型学到更多更有效的特征，减小噪声的影响度。当然数据是很宝贵的，有时候并没有那么多数据可用或者获取代价太高，但我们也可以通过一定的规则来扩充训练数据，比如在图像分类问题上，可以通过图像的平移，旋转，缩放、模糊以及添加噪音等方式扩充数据集。</p><p>(2)正则化防止过拟合<br>正则化思想：由于模型过拟合很大可能是因为训练模型过于复杂，因此在训练时，在对损失函数进行最小化的同时，我们要限定模型参数的数量，即加入正则项，即不是以为的去减小损失函数，同时还考虑模型的复杂程度。</p><h2 id="总结与链接"><a href="#总结与链接" class="headerlink" title="总结与链接"></a>总结与链接</h2><p><img src="https://img-blog.csdnimg.cn/20200404155158345.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM0Njc3OTQ1,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>一般来说，偏差与方差是有冲突的，这称为偏差-方差窘境（bias-variance dilemma）：在模型学习程度较低时，由于训练不足，训练的偏差（bias）较大，而训练数据的干扰带来的误差（variance）很小，这种阶段就是机器学习中的欠拟合（unfitting）；当训练程度加深，偏差变小，但是由于对于当前数据集学习程度加深，如果当前数据集自身的非全局性的特性被学习到，那么会带来过拟合（overfitting）的结果。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;@&lt;a href=&quot;目录&quot;&gt;TOC&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h2&gt;&lt;p&gt;1.&lt;strong&gt;偏差&lt;/strong&gt;：描述的是&lt;strong&gt;预测值的期望&lt;
+      
+    
+    </summary>
+    
+      <category term="算法与数学" scheme="https://www.03pie.work/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E5%AD%A6/"/>
+    
+    
+      <category term="机器学习" scheme="https://www.03pie.work/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>《机器学习中的数学》——PCA与特征值分解</title>
