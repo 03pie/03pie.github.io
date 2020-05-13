@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.03pie.work/"/>
-  <updated>2020-05-13T08:53:50.382Z</updated>
+  <updated>2020-05-13T09:10:36.431Z</updated>
   <id>https://www.03pie.work/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《机器学习中的数学》—— 凸优化（1）</title>
+    <link href="https://www.03pie.work/2020/05/13/%E3%80%8A%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6%E3%80%8B%E2%80%94%E2%80%94-%E5%87%B8%E4%BC%98%E5%8C%96%EF%BC%881%EF%BC%89/"/>
+    <id>https://www.03pie.work/2020/05/13/《机器学习中的数学》——-凸优化（1）/</id>
+    <published>2020-05-13T09:10:09.000Z</published>
+    <updated>2020-05-13T09:10:36.431Z</updated>
+    
+    <content type="html"><![CDATA[<p>@<a href="目录">TOC</a></p><h1 id="1-优化与凸优化简介"><a href="#1-优化与凸优化简介" class="headerlink" title="1.优化与凸优化简介"></a>1.优化与凸优化简介</h1><h3 id="优化问题基本形式"><a href="#优化问题基本形式" class="headerlink" title="优化问题基本形式"></a>优化问题基本形式</h3><p>优化问题的一般形式：<br>$$<br>最小化：f_0(x)<br>$$<br>$$<br>条件：f_i(x)\leq b_i,i=1,…,m.<br>$$<br>其中$f_0(x)$为目标函数，条件里的不等式是限制条件。<br>举例：极大似然估计，最小二乘法。</p><h3 id="凸优化问题的基本形式"><a href="#凸优化问题的基本形式" class="headerlink" title="凸优化问题的基本形式"></a>凸优化问题的基本形式</h3><p>凸优化问题的一般形式：<br>$$<br>最小化：f_0(x)<br>$$<br>$$<br>条件：f_i(x)\leq b_i,i=1,…,m.<br>$$<br>其中$f_0(x)$为目标函数，条件里的不等式是限制条件。</p><ul><li>凸优化问题的条件，$f_0,f_1,…,f_m$都是凸函数。</li><li>凸优化问题的特点，<strong>局部最优解等价与全局最优解</strong>。</li><li>凸优化的问题求解，几乎总有现成的工具来求解。<h1 id="2-凸集合与凸函数基本概念"><a href="#2-凸集合与凸函数基本概念" class="headerlink" title="2.凸集合与凸函数基本概念"></a>2.凸集合与凸函数基本概念</h1><h3 id="凸集合与凸函数的关系"><a href="#凸集合与凸函数的关系" class="headerlink" title="凸集合与凸函数的关系"></a>凸集合与凸函数的关系</h3></li><li><strong>凸集合定义</strong>：如果一个集合$\Omega$中任何两点之间的线段上任何一个点还属于$\Omega$,那么$\Omega$就是一个凸集合：<br>$$<br>\lambda x_1+(1-\lambda)x_2 \in \Omega,\forall x_1,x_2 \in \Omega,\lambda \in (0,1)<br>$$<ul><li><strong>凸函数定义</strong>：如果一个函数$f$定义域$\Omega$是凸集，而且对于任意两点。以及两点之间线段上任意一个点都有：<br>$$<br>f( \lambda x_1+(1-\lambda)x_2 )\leq \lambda f(x_1)+(1-\lambda)f(x_2),\forall x_1,x_2 \in \Omega,\lambda \in (0,1)<br>$$</li><li><strong>函数的上镜图</strong>：假设$f$是一个定义在$\Omega$上的函数，区域${(x,y)：y \ge f(x) ,\forall x \in \Omega$就是$f$的上镜图。<strong>上镜图就是函数图像上方的部分区域。</strong></li><li><strong>凸集合与凸函数</strong>：一个函数就是凸函数当且仅当$f$的上镜图是凸集和。</li><li><strong>凸组合</strong>：对于任何$n$个点${x_i}_{i=1}^{n}$，以及权重系数${w_i}_{i=1}^n$.若权重系数非负$w_i\ge 0$而且 $$\sum_{i=1}^n w_ix_i$$<br>为一个凸组合.凸组合的物理意义可以理解为$n$个重量为$w_i$的点的整体重心。</li><li><strong>集合的凸包</strong>：$n$个点${x_i}_{i=1}^n$的全部凸组合就构成了${x_i}_{i=1}^n$的凸包。</li><li><strong>函数的凸闭包</strong>：如果$C$是函数$f$的上镜图，$\overline{C}$是$C的凸包，那么以\overline{C}为上镜图的函数称之为f的$<strong>凸闭包</strong>.<h3 id="凸集合与凸函数的性质对应"><a href="#凸集合与凸函数的性质对应" class="headerlink" title="凸集合与凸函数的性质对应"></a>凸集合与凸函数的性质对应</h3></li><li><strong>集合的凸包的性质</strong>：$若\overline{C}是C的凸包，那么$：</li></ul><ol><li>$C\subset \overline{C}$;</li><li>$C的支撑平面也是\overline{C}的支撑平面(有多个支撑平面)，反正亦然。$</li></ol></li><li><strong>函数的凸闭包的性质</strong>：$若g是f的凸闭包，那么：$<ol><li>$g\le f$</li><li>$inf{g}=inf {f}$(inf 是 infimum 的简称,一个集合最大的下界。)</li></ol></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;@&lt;a href=&quot;目录&quot;&gt;TOC&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;1-优化与凸优化简介&quot;&gt;&lt;a href=&quot;#1-优化与凸优化简介&quot; class=&quot;headerlink&quot; title=&quot;1.优化与凸优化简介&quot;&gt;&lt;/a&gt;1.优化与凸优化简介&lt;/h1&gt;&lt;h3 id=&quot;优化问题
+      
+    
+    </summary>
+    
+      <category term="算法与数学" scheme="https://www.03pie.work/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E5%AD%A6/"/>
+    
+    
+      <category term="机器学习" scheme="https://www.03pie.work/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>《机器学习中的数学》—— 函数间隔与几何间隔</title>
