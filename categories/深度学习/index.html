@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>《机器学习中的数学》——线性回归与梯度下降 · 03pie</title>
+    <title>03pie</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,23 +203,12 @@
 </head>
 
     
-        <body class="post-body">
-    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
-    
-    <div class="banner">
-            <div class="blog-title">
-                <a href="/">03pie&#39;s home</a>
-            </div>
-            <div class="post-title">
-                <a href="#" class="post-name">《机器学习中的数学》——线性回归与梯度下降</a>
-            </div>
-    </div>
     
     <a class="home-link" href="/">03pie's home</a>
 </header>
@@ -231,72 +220,24 @@
 
 
 
-
-height:50vh;
 ">
     
     <!-- 主页  -->
-    
-    
-    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/timg.gif)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
-            
-            《机器学习中的数学》——线性回归与梯度下降
-            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
-            
-            <!-- 404 -->
-            
         </p>
         <!-- 文章页meta -->
-        
-            <div class="post-intros">
-                <!-- 文章页标签  -->
-                
-                    <div class="post-intro-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="机器学习">机器学习</a>
-    
-</div>
-                
-                
-                    <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">1.6k</span>
-                    </span></div>
-                
-                <div class="post-intro-meta">
-                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2020/03/16</span>
-                    
-                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
-                        <span class="iconfont-archer">&#xe602;</span>
-                        <span id="busuanzi_value_page_pv"></span>
-                    </span>
-                    
-                    <span class="shareWrapper">
-                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
-                        <span class="shareText">Share</span>
-                        <ul class="shareList">
-                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
-                                <div class="share-qrcode"></div>
-                            </li>
-                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
-                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
-                        </ul>
-                    </span>
-                </div>
-            </div>
         
     </div>
 </div>
@@ -397,57 +338,48 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main post-page">
-    <article class="article-entry">
-        <p>@<a href="目录">TOC</a></p>
-<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>线性回归为机器学习中第一个数学模型，属于<strong>监督学习</strong>，即通过训练集中的给定空间点集$X$与$Y$,训练学习$f(X)=Y$的映射关系，在$X$与$Y$之间存在线性相关时可以作为预测模型，输出的$Y$为一个连续值，点集$X$为一维时称之为<strong>一元线性回归</strong>，所求模型为一条直线，二维是一个平面，三维以上是超平面。</p>
-<h2 id="问题讨论"><a href="#问题讨论" class="headerlink" title="问题讨论"></a>问题讨论</h2><p> 用一个很简单的例子来说明回归，这个例子来自很多的地方，也在很多的open source的软件中看到，比如说weka。大概就是，做一个房屋价值的评估系统，一个房屋的价值来自很多地方，比如说面积、房间的数量（几室几厅）、地段、朝向等等，这些影响房屋价值的变量被称为特征(feature)，feature在机器学习中是一个很重要的概念，有很多的论文专门探讨这个东西。在此处，为了简单，假设我们的房屋就是一个变量影响的，就是房屋的面积。<br>  假设有一个房屋销售的数据如下：<br>  面积（$m^{2}$）     | 销售价钱（$￥$）<br>——– | —–<br>123  | 250<br>150 | 320<br>87 | 160<br>120 | 220<br>… | …<br>   这个表类似于帝都5环左右的房屋价钱，我们可以做出一个图，x轴是房屋的面积。y轴是房屋的售价，如下：</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWFnZXMuY25ibG9ncy5jb20vY25ibG9nc19jb20vTGVmdE5vdEVhc3kvV2luZG93c0xpdmVXcml0ZXIvMV8xMjcwRS9pbWFnZV8yLnBuZw?x-oss-process=image/format,png" alt="在这里插入图片描述"><br>如果来了一个新的面积，假设在销售价钱的记录中没有的，我们怎么办呢？</p>
-<p>   我们可以用一条曲线去尽量准的拟合这些数据，然后如果有新的输入过来，我们可以在将曲线上这个点对应的值返回。如果用一条直线去拟合，可能是下面的样子：<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWFnZXMuY25ibG9ncy5jb20vY25ibG9nc19jb20vTGVmdE5vdEVhc3kvV2luZG93c0xpdmVXcml0ZXIvMV8xMjcwRS9pbWFnZV82LnBuZw?x-oss-process=image/format,png" alt="在这里插入图片描述"><br>绿色的点就是我们想要预测的点。<br> 房屋销售记录表 - 训练集(training set)或者训练数据(training data), 是我们流程中的输入数据，一般称为x</p>
-<p>   房屋销售价钱 - 输出数据，一般称为y</p>
-<p>   拟合的函数（或者称为假设或者模型），一般写做$y = f(x)$</p>
-<p>   训练数据的条目数(#training set), 一条训练数据是由一对输入数据和输出数据组成的</p>
-<p>   输入数据的维度(特征的个数，#features)，n</p>
-<p>   下面是一个典型的机器学习的过程，首先给出一个输入数据，我们的算法会通过一系列的过程得到一个估计的函数，这个函数有能力对没有见过的新数据给出一个新的估计，也被称为构建一个模型。就如同上面的线性回归函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">flowchat</span><br><span class="line">st=&gt;start: Training</span><br><span class="line">e=&gt;end: f</span><br><span class="line">op=&gt;operation: Learning Algorithm</span><br><span class="line">x=&gt;subroutine: X</span><br><span class="line">y=&gt;subroutine: Y</span><br><span class="line">st-&gt;op-&gt;e</span><br><span class="line">x-&gt;e&gt;y</span><br></pre></td></tr></table></figure></p>
-<p>我们用$x1$，$x2$..$xn$ 去描述feature里面的分量，比如$x1$=房间的面积，$x2$=房间的朝向，等等，我们可以做出一个估计函数：<br>$$<br> f(x)=f_\theta(x)=\theta_0+\theta_1x_1+\theta_2x_2<br> $$<br> $\theta$在这儿称为参数，在这儿的意思是调整feature中每个分量的影响力，就是到底是房屋的面积更重要还是房屋的地段更重要。为了如果我们令$X0 = 1$，就可以用向量的方式来表示了：<br> $$<br>f(\theta)=\theta^TX<br> $$<br> 我们程序也需要一个机制去评估我们$\theta$是否比较好，所以说需要对我们做出的$f(x)$函数进行评估，一般这个函数称为损失函数（loss function）或者错误函数(error function)，描述$f$函数不好的程度<br> 这里利用估计值与真实值之间的方差和作为度量：<br> $$<br> C(\theta)=\frac{1}{2m}\sum_{i=1}^m[h_\theta(x^{(i)}-y^{(i)})]^2<br> $$<br> $$<br> minC(\theta)<br> $$<br>  前面乘上的1/2是为了在求导（利用求导数最小值）的时候，这个系数就不见了。<br> 接下来利用<strong>梯度下降法</strong>来求得最优解：<br> 梯度下降法是按下面的流程进行的：<br>1）首先对$θ$赋值，这个值可以是随机的，也可以让$θ$是一个全零的向量。<br>2）改变$θ$的值，使得$C(θ)$按梯度下降的方向(梯度的负方向)进行减少。<br><img src="https://img-blog.csdnimg.cn/20200401161104467.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM0Njc3OTQ1,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>当然，可能梯度下降的最终点并非是全局最小点，可能是一个局部最小点，可能是下面的情况：<br><img src="https://img-blog.csdnimg.cn/20200401161141426.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM0Njc3OTQ1,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>上面这张图就是描述的一个局部最小点，这是我们重新选择了一个初始点得到的，看来我们这个算法将会在很大的程度上被初始点的选择影响而陷入局部最小点。<br>下面我们对代价函数求导：<br>$$<br>\frac{\partial}{\partial\theta}C(\theta)=\frac{\partial}{\partial\theta}\frac{1}{2m}\sum_{i=1}^m[C_\theta(x)-y]^2=(C_\theta-y) x^{(i)}<br>$$<br>下面是更新的过程，也就是$θi$会向着梯度最小的方向进行减少。$θi$表示更新之前的值，后面的部分表示按梯度方向减少的量，$α$表示步长(<strong>学习率</strong>)，也就是每次按照梯度减少的方向变化多少。<br>$$<br>\theta_{i}=\theta_{i}-\alpha(h_\theta(x)-y)x^{(i)}<br>$$<br>接下来是回归的<strong>欠拟合</strong>与<strong>过拟合</strong>问题：<img src="https://img-blog.csdnimg.cn/20200401163922260.png" alt="在这里插入图片描述"><br>如果我们出现特别多的特征，模型对训练集数据拟合特别好（$C_\theta(x)\approx0$）失去了一般性，在测试集中表现不一定好，这种情况我们称之为<strong>过拟合</strong>（图三），反之为<strong>欠拟合</strong>（图一）。<br>此时用到的方法是<strong>LR正则化</strong>,所谓正则化就是在代价函数后面加入对参数$\theta$的限制，在参数变化不大的情况（所求的模型平滑，波动不大）下求得最小的代价函数。<br> $$<br> C(\theta)=\frac{1}{2m}\sum_{i=1}^m[h_\theta(x^{(i)}-y^{(i)})]^2+\lambda\sum_{i=1}^m\theta_i^2<br> $$<br> 过拟合是由于$x$的高次项权重过大导致的，导致模型曲线波动幅度大，绕到了所有的样本点，加入对$\theta$的限制，可以抑制高次项的作用，从而避免过拟合问题。</p>
-<h2 id="总结与链接"><a href="#总结与链接" class="headerlink" title="总结与链接"></a>总结与链接</h2><p>关于梯度下降法中的数学细节另写一篇，线性回归可以作为很多连续值的预测beaseline，其中难理解的是梯度下降法，利用泰勒公式对代价函数展开可以知道沿着负梯度的方向是下降最快的。</p>
+            <main class="main index-page">
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2020/06/05/《Pytorch安装（Windows）/">
+            
+                <span>《Pytorch安装（Windows）</span>
+        </a>
+        <div class="abstract-content">
+            Pytorch安装(windows)
+本机配置：
 
+
+由于大陆下载实在太慢，所以采用手动下载安装包到本地，然后再用pip install 安装。
+
+安装包下载：
+
+这里是官方下载目录（https://download.pytorch.org/whl/torch_stable.html）
+例如c...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/06/05</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Python">Python</a>
+    
+</div>
+            
+        </div>
     </article>
-    <!-- license  -->
     
     <!-- paginator  -->
-    <ul class="post-paginator">
-        <li class="next">
-            
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2020/04/02/《机器学习中的数学》——逻辑（斯特）回归/" title="《机器学习中的数学》——逻辑（斯特）回归">
-                    <div class="nextTitle">《机器学习中的数学》——逻辑（斯特）回归</div>
-                </a>
-            
-        </li>
-        <li class="previous">
-            
-                <div class="prevSlogan">Previous Post</div>
-                <a href="/2019/04/16/重新认识程序员/" title="重新认识程序员">
-                    <div class="prevTitle">重新认识程序员</div>
-                </a>
-            
-        </li>
-    </ul>
-    <!-- 评论插件 -->
-    <!-- 来必力City版安装代码 -->
-
-<!-- City版安装代码已完成 -->
     
-    
-    <!-- partial('_partial/comment/changyan') -->
-    <!--PC版-->
-
-
-    
-    
-
-    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -531,24 +463,6 @@ height:50vh;
     </div>
     <!-- toc -->
     
-    <div class="toc-wrapper" style=
-    
-
-
-
-
-
-
-
-top:50vh;
-
-    >
-        <div class="toc-catalog">
-            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
-        </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#摘要"><span class="toc-number">1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题讨论"><span class="toc-number">2.</span> <span class="toc-text">问题讨论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结与链接"><span class="toc-number">3.</span> <span class="toc-text">总结与链接</span></a></li></ol>
-    </div>
-    
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
     <ul class="sidebar-tabs sidebar-tabs-active-0">
@@ -626,9 +540,22 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 7
+        Total : 8
         </div>
         <!-- search  -->
         
@@ -641,6 +568,11 @@ top:50vh;
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/05</span><a class="archive-post-title" href="/2020/06/05/《Pytorch安装（Windows）/">《Pytorch安装（Windows）</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -669,7 +601,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/16</span><a class="archive-post-title" href="/2020/03/16/《机器学习中的数学》——线性回归与梯度下降/">《机器学习中的数学》——线性回归与梯度下降</a>
+            <span class="archive-post-date">04/01</span><a class="archive-post-title" href="/2020/04/01/《机器学习中的数学》——线性回归与梯度下降/">[Untitled Post]</a>
         </li>
     
     
@@ -690,6 +622,8 @@ top:50vh;
   </div>
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="Python"><span class="iconfont-archer">&#xe606;</span>Python</span>
     
         <span class="sidebar-tag-name" data-tags="机器学习"><span class="iconfont-archer">&#xe606;</span>机器学习</span>
     
@@ -728,6 +662,8 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
+        <span class="sidebar-category-name" data-categories="深度学习"><span class="iconfont-archer">&#xe60a;</span>深度学习</span>
+    
         <span class="sidebar-category-name" data-categories="算法与数学"><span class="iconfont-archer">&#xe60a;</span>算法与数学</span>
     
         <span class="sidebar-category-name" data-categories="杂谈"><span class="iconfont-archer">&#xe60a;</span>杂谈</span>
@@ -764,8 +700,6 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
-    
-        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
